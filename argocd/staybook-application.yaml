@@ -1,4 +1,4 @@
-# Application Argo CD "staybook" : le site, l'API et les bases.
+﻿# Application Argo CD "staybook" : le site, l'API et les bases.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<VOTRE-LOGIN>/staybook-gitops.git   # À COMPLÉTER
+    repoURL: https://github.com/Roulitau/TP-Argo.git
     targetRevision: HEAD
     path: apps/staybook
   destination:

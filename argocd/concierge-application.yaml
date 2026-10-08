@@ -1,5 +1,5 @@
-# Application Argo CD "concierge" : l'IA métier (Ollama, Qdrant, rag-service).
-# Même namespace que staybook : les services doivent se voir par leur nom DNS.
+﻿# Application Argo CD "concierge" : l'IA mÃ©tier (Ollama, Qdrant, rag-service).
+# MÃªme namespace que staybook : les services doivent se voir par leur nom DNS.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<VOTRE-LOGIN>/staybook-gitops.git   # À COMPLÉTER
+    repoURL: https://github.com/Roulitau/TP-Argo.git
     targetRevision: HEAD
     path: apps/concierge
   destination:
