@@ -9,7 +9,7 @@ metadata:
 spec:
   description: StayBook â€” environnement de dÃ©veloppement
   sourceRepos:
-    - https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+    - https://github.com/Roulitau/TP-Argo.git   # Ã€ COMPLÃ‰TER
   destinations:
     - server: https://kubernetes.default.svc
       namespace: staybook-dev
@@ -27,7 +27,7 @@ metadata:
 spec:
   description: StayBook â€” production
   sourceRepos:
-    - https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+    - https://github.com/Roulitau/TP-Argo.git   # Ã€ COMPLÃ‰TER
   destinations:
     - server: https://kubernetes.default.svc
       namespace: staybook-prod
@@ -45,7 +45,7 @@ metadata:
 spec:
   description: Services partagÃ©s â€” concierge IA, Sealed Secrets
   sourceRepos:
-    - https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+    - https://github.com/Roulitau/TP-Argo.git   # Ã€ COMPLÃ‰TER
     - https://bitnami.github.io/sealed-secrets
   destinations:
     - server: https://kubernetes.default.svc

@@ -9,7 +9,7 @@ metadata:
 spec:
   project: staybook-dev
   source:
-    repoURL: https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+    repoURL: https://github.com/Roulitau/TP-Argo.git   # Ã€ COMPLÃ‰TER
     targetRevision: HEAD
     path: overlays/dev
   destination:
