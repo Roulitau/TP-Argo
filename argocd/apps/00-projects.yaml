@@ -1,0 +1,57 @@
+# Les AppProjects : qui a le droit de dÃ©ployer quoi, oÃ¹. Vague -1 : crÃ©Ã©s avant les Applications.
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: staybook-dev
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: StayBook â€” environnement de dÃ©veloppement
+  sourceRepos:
+    - https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: staybook-dev
+  clusterResourceWhitelist:          # le seul objet Â« cluster Â» autorisÃ© : le Namespace lui-mÃªme
+    - group: ""
+      kind: Namespace
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: staybook-prod
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: StayBook â€” production
+  sourceRepos:
+    - https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: staybook-prod
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platform
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: Services partagÃ©s â€” concierge IA, Sealed Secrets
+  sourceRepos:
+    - https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+    - https://bitnami.github.io/sealed-secrets
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: concierge
+    - server: https://kubernetes.default.svc
+      namespace: kube-system
+  clusterResourceWhitelist:          # Sealed Secrets installe une CRD et un ClusterRole
+    - group: "*"
+      kind: "*"

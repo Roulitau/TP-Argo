@@ -1,0 +1,22 @@
+# L'Application racine (Â« App of Apps Â») : le SEUL objet appliquÃ© Ã  la main, une fois.
+# Elle dÃ©ploie tout ce qui se trouve dans argocd/apps/ : les AppProjects et les Applications.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Roulitau/staybook-gitops.git   # Ã€ COMPLÃ‰TER
+    targetRevision: HEAD
+    path: argocd/apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
